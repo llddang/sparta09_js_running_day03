@@ -15,7 +15,18 @@
  *   console.log(results); // ['A', 'B']
  * });
  */
-async function parallelRequests(promise1, promise2) {}
+async function parallelRequests(promise1, promise2) {
+  try {
+    const ans1 = await promise1.then((res) => res);
+    const ans2 = await promise2.then((res) => res);
+
+    return new Promise((resolve) => {
+      resolve([ans1, ans2]);
+    });
+  } catch (e) {
+    return new Promise((_, reject) => reject(e));
+  }
+}
 
 // export를 수정하지 마세요.
 export { parallelRequests };
