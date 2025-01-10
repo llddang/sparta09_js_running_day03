@@ -11,7 +11,7 @@
 
 // TODO: loginRequest 함수를 작성하세요.
 async function loginRequest(id, pw) {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     if (id === "admin" && pw === "1234") resolve("ok");
     else resolve("fail");
   });
